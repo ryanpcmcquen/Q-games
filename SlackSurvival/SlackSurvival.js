@@ -49,7 +49,7 @@ Q.Sprite.extend("Player",{
 
       // Check the collision, if it's the Tower, you win!
       if(collision.obj.isA("Tower")) {
-        Q.stageScene("endGame",1, { label: "You Won!" }); 
+        Q.stageScene("endGame",1, { label: "You defeated the evil binary logs!" }); 
         this.destroy();
       }
     });
@@ -161,26 +161,26 @@ Q.scene('endGame',function(stage) {
   }));
 
   var button = container.insert(new Q.UI.Button({ x: 0, y: 0, fill: "#CCCCCC",
-                                                  label: "Play Again" }))         
+                                                  label: "Play Level 2" }))         
   var label = container.insert(new Q.UI.Text({x:10, y: -10 - button.p.h, 
                                                    label: stage.options.label }));
   // When the button is clicked, clear all the stages
   // and restart the game.
   button.on("click",function() {
     Q.clearStages();
-    Q.stageScene('level1');
+    Q.stageScene('level2');
   });
 
   // Expand the container to visibily fit it's contents
   // (with a padding of 20 pixels)
-  container.fit(30);
+  container.fit(40);
 });
 
 // ## Asset Loading and Game Launch
 // Q.load can be called at any time to load additional assets
 // assets that are already loaded will be skipped
 // The callback will be triggered when everything is loaded
-Q.load("sprites.png, sprites.json, level01.json, tiles.png, background-wall.png", function() {
+Q.load("sprites.png, sprites.json, level01.json, level02.json, tiles.png, background-wall.png", function() {
   // Sprites sheets can be created manually
   Q.sheet("tiles","tiles.png", { tilew: 32, tileh: 32 });
 
