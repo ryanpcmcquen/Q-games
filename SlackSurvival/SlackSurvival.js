@@ -81,7 +81,7 @@ Q.Sprite.extend("Enemy",{
     // end the game unless the enemy is hit on top
     this.on("bump.left,bump.right,bump.bottom",function(collision) {
       if(collision.obj.isA("Player")) { 
-        Q.stageScene("endGame",1, { label: "You Died" }); 
+        Q.stageScene("endGame",1, { label: "You were defeated." }); 
         collision.obj.destroy();
       }
     });
